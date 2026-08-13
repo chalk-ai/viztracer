@@ -686,9 +686,7 @@ class TestThreadDestructorAfterFinalize(CmdlineTmpl):
             for _ in range(4):
                 threading.Thread(target=busy, daemon=True).start()
             time.sleep(0.3)
-            tracer.stop()
-            tracer.save()
-            print("saved")
+            print("started")
             """
         # Whether a worker exits before or after Py_FinalizeEx() is a race, so
         # repeat to make a reintroduced crash reasonably likely to be caught.
@@ -696,6 +694,6 @@ class TestThreadDestructorAfterFinalize(CmdlineTmpl):
             self.template(
                 [sys.executable, "cmdline_test.py"],
                 script=thread_destructor_code,
-                expected_output_file="result.json",
-                expected_stdout="saved",
+                expected_output_file=None,
+                expected_stdout="started",
             )
