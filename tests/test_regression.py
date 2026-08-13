@@ -686,6 +686,9 @@ class TestThreadDestructorAfterFinalize(CmdlineTmpl):
             for _ in range(4):
                 threading.Thread(target=busy, daemon=True).start()
             time.sleep(0.3)
+            # Exit with traced workers alive so their TLS destructors can run
+            # after finalization. Calling stop() here adds a separate race on
+            # free-threaded Python by flushing stacks the workers still mutate.
             print("started")
             """
         # Whether a worker exits before or after Py_FinalizeEx() is a race, so
