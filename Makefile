@@ -36,4 +36,6 @@ clean:
 	rm -rf dist
 	rm -rf viztracer.egg-info
 	rm -rf src/viztracer.egg-info
-	pip uninstall -y viztracer
+	rm -rf chalk_viztracer.egg-info
+	rm -rf src/chalk_viztracer.egg-info
+	pip uninstall -y chalk-viztracer

@@ -1,6 +1,10 @@
 # VizTracer
 
-[![build](https://github.com/gaogaotiantian/viztracer/workflows/build/badge.svg)](https://github.com/gaogaotiantian/viztracer/actions?query=workflow%3Abuild)  [![ruff](https://github.com/gaogaotiantian/viztracer/workflows/lint/badge.svg)](https://github.com/gaogaotiantian/viztracer/actions?query=workflow%3ALint)  [![readthedocs](https://img.shields.io/readthedocs/viztracer)](https://viztracer.readthedocs.io/en/stable/)  [![coverage](https://img.shields.io/codecov/c/github/gaogaotiantian/viztracer)](https://codecov.io/gh/gaogaotiantian/viztracer)  [![pypi](https://img.shields.io/pypi/v/viztracer.svg)](https://pypi.org/project/viztracer/)  [![support-version](https://img.shields.io/pypi/pyversions/viztracer)](https://img.shields.io/pypi/pyversions/viztracer)  [![license](https://img.shields.io/github/license/gaogaotiantian/viztracer)](https://github.com/gaogaotiantian/viztracer/blob/master/LICENSE)  [![commit](https://img.shields.io/github/last-commit/gaogaotiantian/viztracer)](https://github.com/gaogaotiantian/viztracer/commits/master)  [![sponsor](https://img.shields.io/badge/%E2%9D%A4-Sponsor%20me-%23c96198?style=flat&logo=GitHub)](https://github.com/sponsors/gaogaotiantian)
+[![build](https://github.com/chalk-ai/viztracer/workflows/build/badge.svg)](https://github.com/chalk-ai/viztracer/actions?query=workflow%3Abuild)  [![ruff](https://github.com/chalk-ai/viztracer/workflows/lint/badge.svg)](https://github.com/chalk-ai/viztracer/actions?query=workflow%3ALint)  [![readthedocs](https://img.shields.io/readthedocs/viztracer)](https://viztracer.readthedocs.io/en/stable/)  [![coverage](https://img.shields.io/codecov/c/github/gaogaotiantian/viztracer)](https://codecov.io/gh/gaogaotiantian/viztracer)  [![pypi](https://img.shields.io/pypi/v/chalk-viztracer.svg)](https://pypi.org/project/chalk-viztracer/)  [![support-version](https://img.shields.io/pypi/pyversions/chalk-viztracer)](https://img.shields.io/pypi/pyversions/chalk-viztracer)  [![license](https://img.shields.io/github/license/chalk-ai/viztracer)](https://github.com/chalk-ai/viztracer/blob/master/LICENSE)  [![commit](https://img.shields.io/github/last-commit/chalk-ai/viztracer)](https://github.com/chalk-ai/viztracer/commits/master)  [![sponsor](https://img.shields.io/badge/%E2%9D%A4-Sponsor%20me-%23c96198?style=flat&logo=GitHub)](https://github.com/sponsors/gaogaotiantian)
+
+This repository publishes the Chalk-maintained `chalk-viztracer` distribution.
+It preserves VizTracer's `viztracer` Python package and command-line interfaces
+while carrying patches that have not yet shipped in an upstream release.
 
 VizTracer is a low-overhead logging/debugging/profiling tool that can trace and visualize your python code execution.
 
@@ -24,7 +28,7 @@ More help can be found in "Support - Controls".
 The preferred way to install VizTracer is via pip
 
 ```sh
-pip install viztracer
+pip install chalk-viztracer
 ```
 
 ## Basic Usage
@@ -116,7 +120,7 @@ tracer = VizTracer()
 tracer.start()
 # Something happens here
 tracer.stop()
-tracer.save() # also takes output_file as an optional argument
+tracer.save()  # also takes output_file as an optional argument
 ```
 
 Or, you can do it with ```with``` statement
