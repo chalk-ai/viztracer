@@ -5,7 +5,8 @@ wheel
 
 # Lint & Coverage
 ruff
-mypy
+# mypy 2.x pulls in ast-serialize, whose PyO3 build does not support CPython 3.13t.
+mypy<2
 coverage
 
 # Test
