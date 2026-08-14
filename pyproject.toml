@@ -3,9 +3,9 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "viztracer"
+name = "chalk-viztracer"
 authors = [{name = "Tian Gao", email = "gaogaotiantian@hotmail.com"}]
-description = "A debugging and profiling tool that can trace and visualize python code execution"
+description = "A debugging and profiling tool that can trace and visualize python code execution (Chalk fork)"
 dependencies = ["objprint>=0.3.0"]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -30,8 +30,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/gaogaotiantian/viztracer"
+Homepage = "https://github.com/chalk-ai/viztracer"
 Documentation = "https://viztracer.readthedocs.io"
+Upstream = "https://github.com/gaogaotiantian/viztracer"
 
 [project.optional-dependencies]
 full = ["orjson"]

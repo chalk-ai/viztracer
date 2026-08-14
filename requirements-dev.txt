@@ -5,7 +5,8 @@ wheel
 
 # Lint & Coverage
 ruff
-mypy
+# mypy 1.19+ pulls in librt, whose C extension does not support CPython 3.13t on Intel macOS.
+mypy<1.19
 coverage
 
 # Test

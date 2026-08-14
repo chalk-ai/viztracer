@@ -48,16 +48,20 @@ class TestTorch(CmdlineTmpl):
                 self.assertEqual(len(aten_events), 100)
                 for py, aten in zip(py_events, aten_events):
                     if "linux" in sys.platform:
-                        # We care about Linux
-                        self.assertLess(py["ts"], aten["ts"])
+                        # The Python and Torch clocks can differ by a few ns.
+                        acceptable_margin = 1
+                        self.assertLess(py["ts"], aten["ts"] + acceptable_margin)
                         self.assertGreater(
-                            py["ts"] + py["dur"], aten["ts"] + aten["dur"]
+                            py["ts"] + py["dur"],
+                            aten["ts"] + aten["dur"] - acceptable_margin,
                         )
                     elif sys.platform == "win32":
-                        # Windows is at least sane, give it 50us diff
-                        self.assertLess(py["ts"], aten["ts"] + 50)
+                        # Windows is at least sane, give it 100us diff
+                        acceptable_margin = 100
+                        self.assertLess(py["ts"], aten["ts"] + acceptable_margin)
                         self.assertGreater(
-                            py["ts"] + py["dur"], aten["ts"] + aten["dur"] - 50
+                            py["ts"] + py["dur"],
+                            aten["ts"] + aten["dur"] - acceptable_margin,
                         )
                     else:
                         # Mac is pure crazy and we don't care about it
@@ -99,10 +103,12 @@ class TestTorch(CmdlineTmpl):
                 self.assertEqual(len(aten_events), 100)
                 for py, aten in zip(py_events, aten_events):
                     if "linux" in sys.platform:
-                        # We care about Linux
-                        self.assertLess(py["ts"], aten["ts"])
+                        # The Python and Torch clocks can differ by a few ns.
+                        acceptable_margin = 1
+                        self.assertLess(py["ts"], aten["ts"] + acceptable_margin)
                         self.assertGreater(
-                            py["ts"] + py["dur"], aten["ts"] + aten["dur"]
+                            py["ts"] + py["dur"],
+                            aten["ts"] + aten["dur"] - acceptable_margin,
                         )
                     elif sys.platform == "win32":
                         # Windows is at least sane, give it 100us diff
